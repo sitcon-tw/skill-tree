@@ -30,11 +30,8 @@ export default function Home() {
           請按照下列指示將資訊技能樹安裝到桌面。
         </p>
         <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
-          <div className="mb-8">
-            <p className="text-xl">選擇你的瀏覽器</p>
-            <p className="text-primary-100">
-              建議使用下列經測試之瀏覽器，以獲得最佳的使用體驗。
-            </p>
+          <div className="mb-4">
+            <p className="text-xl text-center">選擇瀏覽器</p>
           </div>
           <div className="flex gap-2 mt-4">
             <div
@@ -62,24 +59,31 @@ export default function Home() {
               <span className="text-xs -mt-1.5">iOS</span>
             </div>
           </div>
+          <p className="text-primary-100 mt-4 text-sm text-center opacity-50">
+            建議使用上述經測試之瀏覽器，以獲得最佳的使用體驗。
+          </p>
         </div>
 
         {active === 0 && (
           <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
-            <p className="text-xl mb-4">適用於 Chrome 的安裝方法</p>
+            <p className="text-xl mb-4">
+              <span className="mdi mdi-google-chrome"></span> Chrome 的安裝方法
+            </p>
             <GuideImg src="a-1.png" />
             <p className="text-primary-100 mb-8">
               1. 點選 <span className="mdi mdi-dots-vertical"></span>{" "}
             </p>
             <GuideImg src="a-2.png" />
-            <p className="text-primary-100 mb-8">2. 點選「新增至主畫面」。</p>
+            <p className="text-primary-100 mb-8">2. 點選「加到主畫面」。</p>
             <GuideImg src="a-3.png" />
             <p className="text-primary-100">3. 點選「新增」，完成安裝。</p>
           </div>
         )}
         {active === 1 && (
           <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
-            <p className="text-xl mb-4">適用於 Safari 的安裝方法</p>
+            <p className="text-xl mb-4">
+              <span className="mdi mdi-apple-safari"></span> Safari 的安裝方法
+            </p>
             <GuideImg src="i-1.png" />
             <p className="text-primary-100 mb-8">
               1. 點選下方的 <span className="mdi mdi-export-variant"></span>{" "}
