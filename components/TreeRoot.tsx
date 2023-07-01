@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useAnimate, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
 interface TreeRootAttr {
@@ -11,6 +11,8 @@ interface TreeRootAttr {
 }
 export default function TreeRoot({ root }: { root: TreeRootAttr }) {
   const [show, setShow] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   return (
     <>
       <motion.div
@@ -38,51 +40,52 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
           ></div>
         </div>
       </motion.div>
-      {createPortal(
-        <AnimatePresence>
-          {show && (
-            <motion.div
-              className="fixed left-0 top-0 w-full h-full backdrop-blur bg-black bg-opacity-25 cursor-pointer"
-              onClick={() => setShow(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {show && (
               <motion.div
-                className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto bg-white cursor-auto ${
-                  root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
-                } z-10`}
-                layoutId={root.uuid}
-                layout
+                className="fixed left-0 top-0 w-full h-full backdrop-blur bg-black bg-opacity-25 cursor-pointer"
+                onClick={() => setShow(false)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="m-4 flex items-center justify-between gap-4">
-                  <div className="text-xl font-bold">
-                    {" "}
-                    <span
-                      className={`mdi mdi-${root.icon} scale-110`}
-                    ></span>{" "}
-                    {root.name}
+                <motion.div
+                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto bg-white cursor-auto ${
+                    root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
+                  } z-10`}
+                  layoutId={root.uuid}
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <div className="m-4 flex items-center justify-between gap-4">
+                    <div className="text-xl font-bold">
+                      {" "}
+                      <span
+                        className={`mdi mdi-${root.icon} scale-110`}
+                      ></span>{" "}
+                      {root.name}
+                    </div>
+                    <div onClick={() => setShow(false)}>close</div>
                   </div>
-                  <div onClick={() => setShow(false)}>close</div>
-                </div>
-                <p className="m-4">{root.content}</p>
-                <img
-                  src={
-                    root.top > 700
-                      ? "/imgs/bottom-sheet-1.svg"
-                      : "/imgs/bottom-sheet-2.svg"
-                  }
-                  className="w-full absolute -bottom-10"
-                />
+                  <p className="m-4">{root.content}</p>
+                  <img
+                    src={
+                      root.top > 700
+                        ? "/imgs/bottom-sheet-1.svg"
+                        : "/imgs/bottom-sheet-2.svg"
+                    }
+                    className="w-full absolute -bottom-10"
+                  />
+                </motion.div>
               </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document?.body
-      )}
+            )}
+          </AnimatePresence>,
+          document.body
+        )}
     </>
   );
 }
