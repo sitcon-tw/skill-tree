@@ -49,7 +49,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
               exit={{ opacity: 0 }}
             >
               <motion.div
-                className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto bg-white ${
+                className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto bg-white cursor-auto ${
                   root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
                 } z-10`}
                 layoutId={root.uuid}
