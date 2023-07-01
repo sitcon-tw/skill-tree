@@ -25,10 +25,13 @@ export default function Tree() {
   const planetY = useTransform(warpTime, [0, 4000, 8000], [0, 25, 0], {
     ease: easeInOut,
   });
-  const satelliteY = useTransform(warpTime2, [0, 2500, 5000], [10, -5, 10], {
+  const satelliteY = useTransform(time, [0, 2000], [60, 0], {
     ease: easeInOut,
   });
-  const satelliteScale = useTransform(warpTime2, [0, 2500, 5000], [1, 0.8, 1], {
+  const satelliteScale = useTransform(time, [0, 2000], [0.8, 1], {
+    ease: easeInOut,
+  });
+  const planetScale = useTransform(time, [0, 2000], [1.1, 1], {
     ease: easeInOut,
   });
   return (
@@ -49,10 +52,11 @@ export default function Tree() {
         draggable="false"
         style={{ y: planetY }}
       />
-      <img
+      <motion.img
         src="/imgs/tree/plants2.svg"
         className="absolute top-[25.7%] left-0 min-w-[106.7%] user-select-none pointer-events-none"
         draggable="false"
+        style={{ scale: planetScale }}
       />
       <motion.img
         src="/imgs/tree/satellite.svg"
