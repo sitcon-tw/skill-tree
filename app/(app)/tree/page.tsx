@@ -29,10 +29,6 @@ export default function TreePage() {
     {
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel();
-        if (x > window.innerWidth / 2 || x < -window.innerWidth / 2)
-          return cancel();
-        if (y > window.innerHeight / 2 || y < -window.innerHeight / 2)
-          return cancel();
         api.start({ x, y });
       },
       onPinch: ({
@@ -57,7 +53,16 @@ export default function TreePage() {
     },
     {
       target: ref,
-      drag: { from: () => [style.x.get(), style.y.get()] },
+      drag: {
+        from: () => [style.x.get(), style.y.get()],
+        bounds: {
+          left: -window.innerWidth / 2,
+          right: window.innerWidth / 2,
+          top: -window.innerHeight / 2,
+          bottom: window.innerHeight / 2,
+        },
+        rubberband: true,
+      },
       pinch: { scaleBounds: { min: 0.75, max: 1.25 }, rubberband: true },
     }
   );
