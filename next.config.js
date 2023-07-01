@@ -4,6 +4,10 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
   dynamicStartUrlRedirect: true,
 })
-const nextConfig = {}
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  distDir: 'dist',
+}
 
 module.exports = withPWA(nextConfig)
