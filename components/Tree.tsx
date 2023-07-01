@@ -44,7 +44,7 @@ export default function Tree() {
     >
       <img
         src="/imgs/tree/bg.svg"
-        className="w-full border border-white border-opacity-5 user-select-none pointer-events-none scale-[1.1] translate-y-[-3.5%] origin-top"
+        className="w-full user-select-none pointer-events-none scale-[1.1] translate-y-[-3.5%] origin-top"
         draggable="false"
       />
       <motion.img
