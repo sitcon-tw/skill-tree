@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 function GuideImg({ src }: { src: string }) {
   return (
     <img
@@ -9,6 +10,8 @@ function GuideImg({ src }: { src: string }) {
   );
 }
 export default function Home() {
+  const router = useRouter();
+  const [click, setClick] = useState(0);
   const [active, setActive] = useState(0);
   useEffect(() => {
     // isSafari
@@ -19,17 +22,27 @@ export default function Home() {
       setActive(1);
     }
   }, []);
+  useEffect(() => {
+    if (click >= 7) {
+      router.push("/tree");
+    }
+  }, [click]);
   return (
-    <div className="bg-primary-950 text-white min-h-[100svh] p-4">
+    <div className="bg-zinc-800 text-white min-h-[100svh] p-4">
       <div className="mx-auto max-w-[612px] w-full p-2">
-        <h1 className="text-3xl text-center">SITCON Camp</h1>
+        <h1
+          className="text-3xl text-center"
+          onClick={() => setClick(click + 1)}
+        >
+          SITCON Camp
+        </h1>
         <h1 className="text-3xl text-center mb-2">資訊技能樹</h1>
         <p className="text-primary-100 text-center">
           嗨，歡迎你使用資訊技能樹！
           <br />
           請按照下列指示將資訊技能樹安裝到桌面。
         </p>
-        <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
+        <div className="bg-zinc-900 px-3 py-4 rounded-lg overflow-hidden mt-4">
           <div className="mb-4">
             <p className="text-xl text-center">選擇瀏覽器</p>
           </div>
@@ -65,7 +78,7 @@ export default function Home() {
         </div>
 
         {active === 0 && (
-          <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
+          <div className="bg-zinc-900 px-3 py-4 rounded-lg overflow-hidden mt-4">
             <p className="text-xl mb-4">
               <span className="mdi mdi-google-chrome"></span> Chrome 的安裝方法
             </p>
@@ -80,7 +93,7 @@ export default function Home() {
           </div>
         )}
         {active === 1 && (
-          <div className="bg-black bg-opacity-10 px-3 py-4 rounded-lg overflow-hidden mt-4">
+          <div className="bg-zinc-900 px-3 py-4 rounded-lg overflow-hidden mt-4">
             <p className="text-xl mb-4">
               <span className="mdi mdi-apple-safari"></span> Safari 的安裝方法
             </p>
