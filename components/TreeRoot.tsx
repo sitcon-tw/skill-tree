@@ -62,12 +62,14 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="m-4 flex items-center justify-between gap-4">
-                    <div className="text-xl font-bold">
+                  <div className="m-4 flex items-center justify-between gap-4 text-xl">
+                    <div className="font-bold flex-1">
                       <span className={`mdi mdi-${root.icon} scale-110`}></span>{" "}
                       {root.name}
                     </div>
-                    <div onClick={() => setShow(false)}>close</div>
+                    <div onClick={() => setShow(false)}>
+                      <span className="mdi mdi-window-close cursor-pointer"></span>
+                    </div>
                   </div>
                   <p className="m-4">{root.content}</p>
                   <img
