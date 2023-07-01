@@ -7,13 +7,30 @@ export default function Tree() {
     visible: {
       opacity: 1,
       transition: {
-        yoyo: Infinity,
+        delay: 0.5,
         duration: 1,
       },
     },
   };
+  const treeContainer = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <div className="w-full relative">
+    <motion.div
+      className="w-full relative"
+      variants={treeContainer}
+      initial="hidden"
+      animate="visible"
+    >
       <img
         src="/imgs/tree/bg.svg"
         className="w-full border border-white user-select-none pointer-events-none"
@@ -44,6 +61,6 @@ export default function Tree() {
         initial="hidden"
         animate="visible"
       />
-    </div>
+    </motion.div>
   );
 }
