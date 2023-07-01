@@ -25,7 +25,8 @@ export default function TreePage() {
     scale: 1,
   }));
   const ref = React.useRef<HTMLDivElement>(null);
-  let windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+  let windowWidth =
+    typeof window !== "undefined" ? Math.min(window.innerWidth, 768) : 0;
   let windowHeight = typeof window !== "undefined" ? window.innerHeight : 0;
   useGesture(
     {
