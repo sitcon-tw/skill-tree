@@ -7,6 +7,7 @@ export default function RootLayout({
   return (
     <html lang="zh-TW">
       <head>
+        <title>資訊技能樹</title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css"
