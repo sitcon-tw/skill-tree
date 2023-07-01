@@ -67,6 +67,10 @@ export default function Tree() {
         initial="hidden"
         animate="visible"
       />
+      {/* 開源精神 */}
+      <div className="absolute top-[42%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold">
+        開源精神
+      </div>
     </motion.div>
   );
 }
