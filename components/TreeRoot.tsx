@@ -62,9 +62,9 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div className="m-4 flex items-center justify-between gap-4 text-xl">
+                  <div className="m-4 flex items-center justify-between gap-4 text-2xl">
                     <div className="font-bold flex-1">
-                      <span className={`mdi mdi-${root.icon} scale-110`}></span>{" "}
+                      <span className={`mdi mdi-${root.icon} scale-120`}></span>{" "}
                       {root.name}
                     </div>
                     <div onClick={() => setShow(false)}>
@@ -72,6 +72,11 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                     </div>
                   </div>
                   <p className="m-4">{root.content}</p>
+                  <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
+                  <img
+                    src="/imgs/stamp/camp.webp"
+                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none"
+                  />
                   <img
                     src={
                       root.top > 700
