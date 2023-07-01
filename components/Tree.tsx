@@ -4,14 +4,15 @@ export default function Tree() {
     hidden: {
       opacity: 0,
       scale: 0.95,
-      filter: "blur(10px)",
+      // inset mask
+      clipPath: "circle(0% at 50% 50%)",
     },
     visible: {
       opacity: 1,
       scale: 1,
-      filter: "blur(0px)",
+      clipPath: "circle(100% at 50% 50%)",
       transition: {
-        duration: 0.5,
+        duration: 1,
       },
     },
   };
