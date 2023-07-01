@@ -44,7 +44,7 @@ export default function Tree() {
     >
       <img
         src="/imgs/tree/bg.svg"
-        className="w-full border border-white border-opacity-5 user-select-none pointer-events-none"
+        className="w-full border border-white border-opacity-5 user-select-none pointer-events-none scale-[1.1] translate-y-[-3.5%] origin-top"
         draggable="false"
       />
       <motion.img
@@ -78,7 +78,7 @@ export default function Tree() {
         style={{ opacity: starOpacity1 }}
       />
       {/* 開源精神 */}
-      <div className="absolute top-[42%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold">
+      <div className="absolute top-[41%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold">
         開源精神
       </div>
       {/* Roots */}
