@@ -58,7 +58,7 @@ export default function TreePage() {
     {
       target: ref,
       drag: { from: () => [style.x.get(), style.y.get()] },
-      pinch: { scaleBounds: { min: 0.5, max: 1.5 }, rubberband: true },
+      pinch: { scaleBounds: { min: 0.75, max: 1.25 }, rubberband: true },
     }
   );
   return (

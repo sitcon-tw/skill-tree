@@ -14,13 +14,13 @@ function BottomBarItem({
   const isActive = pathname === href;
   return (
     <Link
-      className={`w-24 flex flex-col gap-0.5 items-center justify-center text-primary-200 text-sm ${
+      className={`w-24 flex flex-col gap-0.5 items-center justify-center text-primary-200 text-sm transition-all ${
         isActive ? `font-bold` : `opacity-50 hover:opacity-75`
       }`}
       href={href}
     >
       <div
-        className={`w-full text-center  rounded-full p-0.5 ${
+        className={`w-full text-center  rounded-full p-0.5 transition-all ${
           isActive ? `bg-primary-300 text-primary-950` : ``
         }`}
       >
