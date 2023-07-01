@@ -36,20 +36,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex w-full h-[100svh] items-center justify-center bg-zinc-950">
-      <div className="flex w-full max-w-[768px] h-[100svh] max-h-[100svh] flex-col bg-primary-950">
-        <div className="w-full h-full overflow-hidden touch-none user-select-none flex items-center justify-center flex-1">
-          {children}
-        </div>
-        <div className="flex gap-4 items-center justify-center p-2 bg-black bg-opacity-20">
-          <BottomBarItem icon="mdi-tree" href="/tree">
-            技能樹
-          </BottomBarItem>
-          <BottomBarItem icon="mdi-qrcode-scan" href="/scanner">
-            掃描器
-          </BottomBarItem>
+    <>
+      <head>
+        <meta name="theme-color" content="#121f39" />
+      </head>
+      <div className="flex w-full h-[100svh] items-center justify-center bg-zinc-950">
+        <div className="flex w-full max-w-[768px] h-[100svh] max-h-[100svh] flex-col bg-primary-950">
+          <div className="w-full h-full overflow-hidden touch-none user-select-none flex items-center justify-center flex-1">
+            {children}
+          </div>
+          <div className="flex gap-4 items-center justify-center p-2 bg-black bg-opacity-20">
+            <BottomBarItem icon="mdi-tree" href="/tree">
+              技能樹
+            </BottomBarItem>
+            <BottomBarItem icon="mdi-qrcode-scan" href="/scanner">
+              掃描器
+            </BottomBarItem>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
