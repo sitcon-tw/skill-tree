@@ -27,10 +27,12 @@ export default function TreePage() {
   const ref = React.useRef<HTMLDivElement>(null);
   useGesture(
     {
-      // onHover: ({ active, event }) => console.log('hover', event, active),
-      // onMove: ({ event }) => console.log('move', event),
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel();
+        if (x > window.innerWidth / 2 || x < -window.innerWidth / 2)
+          return cancel();
+        if (y > window.innerHeight / 2 || y < -window.innerHeight / 2)
+          return cancel();
         api.start({ x, y });
       },
       onPinch: ({
