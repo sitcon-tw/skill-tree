@@ -45,7 +45,7 @@ export default function RootLayout({
           <div className="w-full h-full overflow-hidden touch-none user-select-none flex items-center justify-center flex-1">
             {children}
           </div>
-          <div className="flex gap-4 items-center justify-center p-2 bg-black bg-opacity-20">
+          <div className="flex gap-4 items-center justify-center p-2 pb-[calc(env(safe-area-inset-bottom)+8px)] bg-black bg-opacity-20">
             <BottomBarItem icon="mdi-tree" href="/tree/">
               技能樹
             </BottomBarItem>
