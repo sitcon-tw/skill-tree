@@ -44,15 +44,16 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
         createPortal(
           <AnimatePresence>
             {show && (
-              <motion.div
-                className="fixed left-0 top-0 w-full h-full backdrop-blur bg-black bg-opacity-25 cursor-pointer"
-                onClick={() => setShow(false)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
+              <>
                 <motion.div
-                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto bg-white cursor-auto ${
+                  className="fixed left-0 top-0 w-full h-full backdrop-blur bg-black bg-opacity-25 cursor-pointer"
+                  onClick={() => setShow(false)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                ></motion.div>
+                <motion.div
+                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto ${
                     root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
                   } z-10`}
                   layoutId={root.uuid}
@@ -63,10 +64,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                 >
                   <div className="m-4 flex items-center justify-between gap-4">
                     <div className="text-xl font-bold">
-                      {" "}
-                      <span
-                        className={`mdi mdi-${root.icon} scale-110`}
-                      ></span>{" "}
+                      <span className={`mdi mdi-${root.icon} scale-110`}></span>{" "}
                       {root.name}
                     </div>
                     <div onClick={() => setShow(false)}>close</div>
@@ -81,7 +79,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                     className="w-full absolute -bottom-10"
                   />
                 </motion.div>
-              </motion.div>
+              </>
             )}
           </AnimatePresence>,
           document.body
