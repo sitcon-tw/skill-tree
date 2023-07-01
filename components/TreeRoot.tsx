@@ -78,7 +78,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                         ? "/imgs/bottom-sheet-1.svg"
                         : "/imgs/bottom-sheet-2.svg"
                     }
-                    className="w-full absolute -bottom-10"
+                    className="w-full absolute -bottom-0 translate-y-[100%]"
                   />
                 </motion.div>
               </>
