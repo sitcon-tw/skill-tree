@@ -1,4 +1,6 @@
 import { motion, useTime, useTransform, easeInOut } from "framer-motion";
+import Roots from "@/assets/root.json";
+import TreeRoot from "./TreeRoot";
 export default function Tree() {
   const treeContainer = {
     hidden: {
@@ -19,7 +21,6 @@ export default function Tree() {
 
   const time = useTime();
   const warpTime = useTransform(time, (t) => t % 8000);
-  const warpTime2 = useTransform(time, (t) => t % 5000);
   const starOpacity1 = useTransform(warpTime, [0, 4000, 8000], [1, 0.2, 1]);
   const starOpacity2 = useTransform(warpTime, [0, 4000, 8000], [0.2, 1, 0.2]);
   const planetY = useTransform(warpTime, [0, 4000, 8000], [0, 25, 0], {
@@ -43,7 +44,7 @@ export default function Tree() {
     >
       <img
         src="/imgs/tree/bg.svg"
-        className="w-full border border-white user-select-none pointer-events-none"
+        className="w-full border border-white border-opacity-5 user-select-none pointer-events-none"
         draggable="false"
       />
       <motion.img
@@ -80,6 +81,10 @@ export default function Tree() {
       <div className="absolute top-[42%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold">
         開源精神
       </div>
+      {/* Roots */}
+      {Roots.map((root, index) => (
+        <TreeRoot key={index} root={root} />
+      ))}
     </motion.div>
   );
 }
