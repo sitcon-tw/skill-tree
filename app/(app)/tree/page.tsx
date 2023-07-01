@@ -65,7 +65,7 @@ export default function TreePage() {
         },
         rubberband: true,
       },
-      pinch: { scaleBounds: { min: 0.75, max: 1.25 }, rubberband: true },
+      pinch: { scaleBounds: { min: 0.75, max: 1.75 }, rubberband: true },
     }
   );
   return (
