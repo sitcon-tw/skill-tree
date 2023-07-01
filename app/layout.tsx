@@ -57,7 +57,9 @@ export default function RootLayout({
         />
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
-      <body className="leading-6">{children}</body>
+      <body className="leading-6">
+        <div>{children}</div>
+      </body>
     </html>
   );
 }
