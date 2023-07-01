@@ -1,17 +1,33 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 function BottomBarItem({
   children,
   icon,
+  href,
 }: {
   children: React.ReactNode;
   icon: string;
+  href: string;
 }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
   return (
-    <div className="w-24 flex flex-col gap-0.5 items-center justify-center text-primary-200 font-bold text-sm">
-      <div className="w-full text-center bg-primary-300 text-primary-950 rounded-full p-0.5">
+    <Link
+      className={`w-24 flex flex-col gap-0.5 items-center justify-center text-primary-200 text-sm ${
+        isActive ? `font-bold` : `opacity-50 hover:opacity-75`
+      }`}
+      href={href}
+    >
+      <div
+        className={`w-full text-center  rounded-full p-0.5 ${
+          isActive ? `bg-primary-300 text-primary-950` : ``
+        }`}
+      >
         <span className={`mdi ${icon} text-2xl`}></span>
       </div>
       {children}
-    </div>
+    </Link>
   );
 }
 export default function RootLayout({
@@ -26,8 +42,12 @@ export default function RootLayout({
           {children}
         </div>
         <div className="flex gap-4 items-center justify-center p-2 bg-black bg-opacity-20">
-          <BottomBarItem icon="mdi-tree">技能樹</BottomBarItem>
-          <BottomBarItem icon="mdi-qrcode-scan">掃描器</BottomBarItem>
+          <BottomBarItem icon="mdi-tree" href="/tree">
+            技能樹
+          </BottomBarItem>
+          <BottomBarItem icon="mdi-qrcode-scan" href="/scanner">
+            掃描器
+          </BottomBarItem>
         </div>
       </div>
     </div>
