@@ -38,22 +38,22 @@ export default function Tree() {
       />
       <img
         src="/imgs/tree/plants1.svg"
-        className="absolute -top-[60px] -left-[100px] w-[300px] user-select-none pointer-events-none"
+        className="absolute -top-[4.8%] -left-[13%] w-[39%] user-select-none pointer-events-none"
         draggable="false"
       />
       <img
         src="/imgs/tree/plants2.svg"
-        className="absolute top-[320px] left-0 min-w-[820px] user-select-none pointer-events-none"
+        className="absolute top-[25.7%] left-0 min-w-[106.7%] user-select-none pointer-events-none"
         draggable="false"
       />
       <img
         src="/imgs/tree/satellite.svg"
-        className="absolute top-[480px] left-[505px] w-[65px] user-select-none pointer-events-none"
+        className="absolute top-[38.5%] left-[65.75%] w-[8.4%] user-select-none pointer-events-none"
         draggable="false"
       />
       <motion.img
         src="/imgs/tree/star1.svg"
-        className="absolute top-[480px] left-[0px] w-[800px] user-select-none pointer-events-none"
+        className="absolute top-[38.5%] left-[0] w-[104%] user-select-none pointer-events-none"
         draggable="false"
         variants={starTwinkle}
         initial="hidden"
@@ -61,7 +61,7 @@ export default function Tree() {
       />
       <motion.img
         src="/imgs/tree/star2.svg"
-        className="absolute top-[0px] left-[0px] w-[800px] user-select-none pointer-events-none"
+        className="absolute top-[0] left-[0] w-[104%] user-select-none pointer-events-none"
         draggable="false"
         variants={starTwinkle}
         initial="hidden"
