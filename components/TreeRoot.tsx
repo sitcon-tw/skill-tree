@@ -99,10 +99,10 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                           <div
                             className="w-full cursor-pointer -mb-12"
                             onClick={() => setLeafInfo(leaf)}
+                            key={index}
                           >
                             <img
                               src={`/imgs/stamp/${leaf.uuid}.png`}
-                              key={index}
                               className="w-full h-[256px] object-contain"
                             />
                           </div>
