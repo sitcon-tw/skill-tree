@@ -97,13 +97,13 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                       {Leaf.filter((leaf) => leaf.category === root.name).map(
                         (leaf, index) => (
                           <div
-                            className="w-full cursor-pointer -mb-12"
+                            className="w-full cursor-pointer p-2"
                             onClick={() => setLeafInfo(leaf)}
                             key={index}
                           >
                             <img
                               src={`/imgs/stamp/${leaf.uuid}.png`}
-                              className="w-full h-[256px] object-contain"
+                              className="w-full aspect-square object-contain"
                             />
                           </div>
                         )
