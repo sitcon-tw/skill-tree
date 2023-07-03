@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimate, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
+import LeafDialog from "./LeafDialog";
+import Leaf from "@/assets/leaf.json";
+interface LeafAttr {
+  icon: string;
+  name: string;
+  category: string;
+  content: string;
+  uuid: string;
+}
 interface TreeRootAttr {
   icon: string;
   name: string;
@@ -12,6 +21,7 @@ interface TreeRootAttr {
 export default function TreeRoot({ root }: { root: TreeRootAttr }) {
   const [show, setShow] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [leafInfo, setLeafInfo] = useState<null | LeafAttr>(null);
   useEffect(() => setMounted(true), []);
   return (
     <>
@@ -53,7 +63,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   exit={{ opacity: 0 }}
                 ></motion.div>
                 <motion.div
-                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto ${
+                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto overflow-y-auto ${
                     root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
                   } z-10`}
                   layoutId={root.uuid}
@@ -75,8 +85,20 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
                   <img
                     src="/imgs/stamp/camp.webp"
-                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none"
+                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30"
                   />
+                  <div className="grid gap-2 grid-cols-2 m-4">
+                    {Leaf.filter((leaf) => leaf.category === root.name).map(
+                      (leaf, index) => (
+                        <img
+                          src={`/imgs/stamp/${leaf.uuid}.svg`}
+                          key={index}
+                          className="w-full"
+                          onClick={() => setLeafInfo(leaf)}
+                        />
+                      )
+                    )}
+                  </div>
                   <img
                     src={
                       root.top > 700
@@ -91,6 +113,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
           </AnimatePresence>,
           document.body
         )}
+      <LeafDialog leaf={leafInfo} close={() => setLeafInfo(null)} />
     </>
   );
 }
