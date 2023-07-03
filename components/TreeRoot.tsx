@@ -101,7 +101,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                             onClick={() => setLeafInfo(leaf)}
                           >
                             <img
-                              src={`/imgs/stamp/${leaf.uuid}.svg`}
+                              src={`/imgs/stamp/${leaf.uuid}.png`}
                               key={index}
                               className="w-full h-[256px] object-contain"
                             />
