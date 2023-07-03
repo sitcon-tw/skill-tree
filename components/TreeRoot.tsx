@@ -86,14 +86,14 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                       <span className="mdi mdi-window-close cursor-pointer"></span>
                     </div>
                   </div>
-                  <p className="m-4">{root.content}</p>
-                  <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
-                  <img
-                    src="/imgs/stamp/camp.webp"
-                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30 pointer-events-none"
-                  />
                   <div className="flex-1 overflow-y-auto">
-                    <div className="grid grid-cols-2 m-4">
+                    <p className="m-4">{root.content}</p>
+                    <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
+                    <img
+                      src="/imgs/stamp/camp.webp"
+                      className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30 pointer-events-none"
+                    />
+                    <div className="grid grid-cols-3 m-4">
                       {Leaf.filter((leaf) => leaf.category === root.name).map(
                         (leaf, index) => (
                           <div
