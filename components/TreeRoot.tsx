@@ -63,7 +63,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   exit={{ opacity: 0 }}
                 ></motion.div>
                 <motion.div
-                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto overflow-y-auto ${
+                  className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto flex flex-col ${
                     root.top > 700 ? `bg-[#92DCC6]` : `bg-[#CECECE]`
                   } z-10`}
                   layoutId={root.uuid}
@@ -71,6 +71,11 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
+                  style={{
+                    scale: leafInfo !== null ? 0.925 : 1,
+                    translateY: leafInfo !== null ? -48 : 0,
+                    filter: leafInfo !== null ? `brightness(0.5)` : `none`,
+                  }}
                 >
                   <div className="m-4 flex items-center justify-between gap-4 text-2xl">
                     <div className="font-bold flex-1">
@@ -85,19 +90,25 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
                   <img
                     src="/imgs/stamp/camp.webp"
-                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30"
+                    className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30 pointer-events-none"
                   />
-                  <div className="grid gap-2 grid-cols-2 m-4">
-                    {Leaf.filter((leaf) => leaf.category === root.name).map(
-                      (leaf, index) => (
-                        <img
-                          src={`/imgs/stamp/${leaf.uuid}.svg`}
-                          key={index}
-                          className="w-full"
-                          onClick={() => setLeafInfo(leaf)}
-                        />
-                      )
-                    )}
+                  <div className="flex-1 overflow-y-auto">
+                    <div className="grid grid-cols-2 m-4">
+                      {Leaf.filter((leaf) => leaf.category === root.name).map(
+                        (leaf, index) => (
+                          <div
+                            className="w-full cursor-pointer -mb-12"
+                            onClick={() => setLeafInfo(leaf)}
+                          >
+                            <img
+                              src={`/imgs/stamp/${leaf.uuid}.svg`}
+                              key={index}
+                              className="w-full h-[256px] object-contain"
+                            />
+                          </div>
+                        )
+                      )}
+                    </div>
                   </div>
                   <img
                     src={
@@ -113,7 +124,11 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
           </AnimatePresence>,
           document.body
         )}
-      <LeafDialog leaf={leafInfo} close={() => setLeafInfo(null)} />
+      <LeafDialog
+        leaf={leafInfo}
+        close={() => setLeafInfo(null)}
+        isRoot={root.top > 700}
+      />
     </>
   );
 }
