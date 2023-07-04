@@ -22,6 +22,7 @@ export default function Scanner() {
   }
   return mounted ? (
     <QrScanner
+      scanDelay={300}
       onDecode={(result) => handleScan(result)}
       onError={(error) => console.log(error?.message)}
     />
