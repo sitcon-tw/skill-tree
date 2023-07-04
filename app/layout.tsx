@@ -32,7 +32,7 @@ export default function RootLayout({
       </head>
       <body className="leading-6">
         <div>{children}</div>
-        <ToastContainer />
+        <ToastContainer position="top-center" theme="light" />
       </body>
     </html>
   );
