@@ -26,6 +26,9 @@ export default function Scanner() {
       scanDelay={300}
       onDecode={(result) => handleScan(result)}
       onError={(error) => console.log(error?.message)}
+      containerStyle={{ width: "100%", height: "100%" }}
+      videoStyle={{ width: "100%", height: "100%", objectFit: "cover" }}
+      viewFinderBorder={0}
     />
   ) : (
     <p>loading...</p>
