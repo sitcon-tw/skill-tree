@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimate, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
+import { useLocalStorage } from "usehooks-ts";
 import LeafDialog from "./LeafDialog";
 import Leaf from "@/assets/leaf.json";
 interface LeafAttr {
@@ -22,6 +23,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
   const [show, setShow] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [leafInfo, setLeafInfo] = useState<null | LeafAttr>(null);
+  const [unlocked, setUnlocked] = useLocalStorage<string[]>("unlocked", []);
   useEffect(() => setMounted(true), []);
   return (
     <>
@@ -93,19 +95,28 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                       src="/imgs/stamp/camp.webp"
                       className="absolute left-0 w-[400px] translate-y-[-100px] user-select-none opacity-30 pointer-events-none"
                     />
-                    <div className="grid grid-cols-3 m-4">
+                    <div className="grid grid-cols-3 m-4 gap-4">
                       {Leaf.filter((leaf) => leaf.category === root.name).map(
                         (leaf, index) => (
                           <div
-                            className="w-full cursor-pointer p-2"
+                            className={`w-full cursor-pointer aspect-square ${
+                              unlocked.includes(leaf.uuid)
+                                ? `bg-gray-700`
+                                : `bg-gray-100 opacity-50`
+                            }`}
                             onClick={() => setLeafInfo(leaf)}
+                            style={{
+                              mask: `url(/imgs/stamp/${leaf.uuid}.png)`,
+                              WebkitMask: `url(/imgs/stamp/${leaf.uuid}.png)`,
+                              maskSize: `contain`,
+                              WebkitMaskSize: `contain`,
+                              maskOrigin: `center`,
+                              WebkitMaskOrigin: `center`,
+                              maskRepeat: `no-repeat`,
+                              WebkitMaskRepeat: `no-repeat`,
+                            }}
                             key={index}
-                          >
-                            <img
-                              src={`/imgs/stamp/${leaf.uuid}.png`}
-                              className="w-full aspect-square object-contain"
-                            />
-                          </div>
+                          ></div>
                         )
                       )}
                     </div>
