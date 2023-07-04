@@ -14,9 +14,7 @@ export default function Scanner() {
       let id = matched[1];
       let leaf = Leaf.find((leaf) => leaf.uuid === id);
       if (!leaf) return alert(`找不到節點！`);
-      if (unlocked.includes(id))
-        return alert(`「${leaf?.name}」已經被解鎖過了！`);
-      else {
+      if (!unlocked.includes(id)) {
         setUnlocked([...unlocked, id]);
         alert(`「${leaf?.name}」解鎖成功！`);
       }
