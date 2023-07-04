@@ -2,6 +2,7 @@
 import { QrScanner } from "@yudiel/react-qr-scanner";
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
+import { toast } from "react-toastify";
 import Leaf from "@/assets/leaf.json";
 export default function Scanner() {
   const [mounted, setMounted] = useState(false);
@@ -13,10 +14,10 @@ export default function Scanner() {
     if (matched) {
       let id = matched[1];
       let leaf = Leaf.find((leaf) => leaf.uuid === id);
-      if (!leaf) return alert(`找不到節點！`);
+      if (!leaf) return toast(`找不到節點！`);
       if (!unlocked.includes(id)) {
         setUnlocked([...unlocked, id]);
-        alert(`「${leaf?.name}」解鎖成功！`);
+        toast(`「${leaf?.name}」解鎖成功！`);
       }
     }
   }
