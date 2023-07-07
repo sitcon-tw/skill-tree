@@ -23,8 +23,16 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
   const [show, setShow] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [leafInfo, setLeafInfo] = useState<null | LeafAttr>(null);
-  const [unlocked, setUnlocked] = useLocalStorage<string[]>("unlocked", []);
-  useEffect(() => setMounted(true), []);
+  const [unlocked] = useLocalStorage<string[]>("unlocked", []);
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    setMounted(true);
+    let total = Leaf.filter((x) => x.category === root.name).length;
+    let unlockedLeaf = Leaf.filter((x) => x.category === root.name)
+      .map((x) => unlocked.includes(x.uuid))
+      .filter((x) => x).length;
+    setProgress(100 - (unlockedLeaf / total) * 100);
+  }, []);
   return (
     <>
       <motion.div
@@ -46,8 +54,8 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
               root.top > 700 ? `bg-[#B0FFE766]` : `bg-[#B0FFE766]`
             }`}
             style={{
-              mask: `linear-gradient(180deg, transparent 50%, #000 50%)`,
-              WebkitMask: `linear-gradient(180deg, transparent 50%, #000 50%)`,
+              mask: `linear-gradient(180deg, transparent ${progress}%, #000 ${progress}%)`,
+              WebkitMask: `linear-gradient(180deg, transparent ${progress}%, #000 ${progress}%)`,
             }}
           ></div>
         </div>
