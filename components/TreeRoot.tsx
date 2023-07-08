@@ -97,7 +97,7 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                     </div>
                   </div>
                   <div className="flex-1 overflow-y-auto">
-                    <p className="m-4">{root.content}</p>
+                    <p className="m-4 mt-0">{root.content}</p>
                     <div className="border-dashed border-t-4 border-[#00000033] m-4"></div>
                     <img
                       src="/imgs/stamp/camp.webp"
