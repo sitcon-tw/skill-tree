@@ -154,13 +154,6 @@
     "uuid": "889a6aab"
   },
   {
-    "icon": "firefox",
-    "name": "MozTW",
-    "category": "網路",
-    "content": "MozTW（Mozilla Taiwan Community、Mozilla 台灣社群）是台灣 Firefox 愛好者的實體社群，負責維護 Mozilla 軟體與網站的正體中文在地化，與 Mozilla 相關理念推廣。目前也同時在北市光華商圈經營摩茲工寮實體空間 ( https://moztw.space )，很多社群活動的籌會都會在摩茲舉行。",
-    "uuid": "1346c675"
-  },
-  {
     "icon": "shape-square-rounded-plus",
     "name": "ADT",
     "category": "資料結構",
@@ -336,6 +329,13 @@
     "uuid": "f0d720f1"
   },
   {
+    "icon": "firefox",
+    "name": "MozTW",
+    "category": "社群",
+    "content": "MozTW（Mozilla Taiwan Community、Mozilla 台灣社群）是台灣 Firefox 愛好者的實體社群，負責維護 Mozilla 軟體與網站的正體中文在地化，與 Mozilla 相關理念推廣。目前也同時在北市光華商圈經營摩茲工寮實體空間 ( https://moztw.space )，很多社群活動的籌會都會在摩茲舉行。",
+    "uuid": "1346c675"
+  },
+  {
     "icon": "",
     "name": "GDSC",
     "category": "社群",
@@ -402,7 +402,7 @@
     "icon": "ethereum",
     "name": "以太坊",
     "category": "區塊鏈",
-    "content": "以太坊 (Ethereum)是一個開源的區塊鍊平台，目標是成為連結加密貨幣與去中心化應用的平台。它是由以太幣驅動，具有自己的虛擬機器 (EVM)，可在其中執行智能合約，實現個類型的去中心化應用。如去中心化交易所、去中心化自治組織、遊戲及社交媒體。以太坊的出現為區塊鏈應用展開新的大門。",
+    "content": "以太坊 (Ethereum)是一個開源的區塊鏈平台，目標是成為連結加密貨幣與去中心化應用的平台。它是由以太幣驅動，具有自己的虛擬機器 (EVM)，可在其中執行智能合約，實現個類型的去中心化應用。如去中心化交易所、去中心化自治組織、遊戲及社交媒體。以太坊的出現為區塊鏈應用展開新的大門。",
     "uuid": "010f630c"
   },
   {
@@ -425,13 +425,6 @@
     "category": "元宇宙",
     "content": "數位孿生 (Digital Twin)，是指利用數據和模擬技術，在虛擬世界中，創建現實實體的虛擬副本。用於預測物體、產品或系統的行為，提供準確的數據。並可在模擬中進行優化和仿真測試，因此大量節省於現實中測試所造成的時間和資源成本。可被應用於模擬製造、城市規劃、建築、醫療等領域。",
     "uuid": "9192a7b2"
-  },
-  {
-    "icon": "link-box-variant-outline",
-    "name": "區塊鍊",
-    "category": "元宇宙",
-    "content": "區塊鏈是一種分散式數據存儲和交易記錄技術，數據以區塊的形式連結成鏈。它使用加密和共識算法，實現去中心化的可信數據交換和驗證，保護數據的完整性和安全性。區塊鏈廣泛應用於加密貨幣、智能合約和數字身份等領域。",
-    "uuid": "5ca4cae3"
   },
   {
     "icon": "ceiling-light-multiple-outline",
