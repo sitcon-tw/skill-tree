@@ -1,7 +1,13 @@
 import { motion, useTime, useTransform, easeInOut } from "framer-motion";
+import { useState } from "react";
 import Roots from "@/assets/root.json";
 import TreeRoot from "./TreeRoot";
+
+import OpenSourceSpiritDialog from "./OpenSourceSpiritDialog";
 export default function Tree() {
+  const [isOpenSourceSpiritDialogOpen, setIsOpenSourceSpiritDialogOpen] =
+    useState(false);
+
   const treeContainer = {
     hidden: {
       opacity: 0,
@@ -78,9 +84,16 @@ export default function Tree() {
         style={{ opacity: starOpacity1 }}
       />
       {/* 開源精神 */}
-      <div className="absolute top-[42.5%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold">
+      <motion.div
+        className="absolute top-[42.5%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold"
+        onClick={() => setIsOpenSourceSpiritDialogOpen(true)}
+      >
         開源精神
-      </div>
+      </motion.div>
+      <OpenSourceSpiritDialog
+        isOpen={isOpenSourceSpiritDialogOpen}
+        onClose={() => setIsOpenSourceSpiritDialogOpen(false)}
+      />
       {/* Roots */}
       {Roots.map((root, index) => (
         <TreeRoot key={index} root={root} />
