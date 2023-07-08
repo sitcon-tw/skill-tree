@@ -92,7 +92,9 @@ export default function Home() {
                 1. 點選 <span className="mdi mdi-dots-vertical"></span>{" "}
               </p>
               <GuideImg src="a-2.png" />
-              <p className="text-primary-100 mb-8">2. 點選「加到主畫面」。</p>
+              <p className="text-primary-100 mb-8">
+                2. 點選「加到主畫面」或是「安裝應用程式」。
+              </p>
               <GuideImg src="a-3.png" />
               <p className="text-primary-100">3. 點選「新增」，完成安裝。</p>
             </div>
