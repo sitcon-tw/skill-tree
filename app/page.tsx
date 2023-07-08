@@ -32,7 +32,7 @@ export default function Home() {
       <head>
         <meta name="theme-color" content="#27272A" />
       </head>
-      <div className="bg-zinc-800 text-white min-h-[100svh] p-4">
+      <div className="bg-zinc-800 text-white h-[100svh] overflow-scroll p-4">
         <div className="mx-auto max-w-[612px] w-full p-2">
           <h1
             className="text-3xl text-center"
