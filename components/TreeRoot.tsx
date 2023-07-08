@@ -78,9 +78,9 @@ export default function TreeRoot({ root }: { root: TreeRootAttr }) {
                   } z-10`}
                   layoutId={root.uuid}
                   layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  initial={{ opacity: 0, clipPath: "circle(0% at 50% 50%)" }}
+                  animate={{ opacity: 1, clipPath: "circle(100% at 50% 50%)" }}
+                  exit={{ opacity: 0, clipPath: "circle(0% at 50% 50%)" }}
                   style={{
                     scale: leafInfo !== null ? 0.925 : 1,
                     translateY: leafInfo !== null ? -48 : 0,
