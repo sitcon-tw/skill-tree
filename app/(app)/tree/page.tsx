@@ -24,6 +24,8 @@ export default function TreePage() {
     y: 0,
     scale: 1,
   }));
+  const [x, setX] = React.useState(0);
+  const [y, setY] = React.useState(0);
   const ref = React.useRef<HTMLDivElement>(null);
   let windowWidth =
     typeof window !== "undefined" ? Math.min(window.innerWidth, 768) : 0;
@@ -33,6 +35,8 @@ export default function TreePage() {
       onDrag: ({ pinching, cancel, offset: [x, y], ...rest }) => {
         if (pinching) return cancel();
         api.start({ x, y });
+        setX(x);
+        setY(y);
       },
       onPinch: ({
         origin: [ox, oy],
@@ -51,6 +55,8 @@ export default function TreePage() {
         const x = memo[0] - (ms - 1) * memo[2];
         const y = memo[1] - (ms - 1) * memo[3];
         api.start({ scale: s, x, y });
+        setX(x);
+        setY(y);
         return memo;
       },
     },
@@ -75,7 +81,7 @@ export default function TreePage() {
       ref={ref}
       style={style}
     >
-      <Tree />
+      <Tree x={x} y={y} />
     </animated.div>
   );
 }
