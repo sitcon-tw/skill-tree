@@ -43,8 +43,8 @@ export default function LeafDialog({
               <img
                 src={
                   isRoot
-                    ? "/imgs/bottom-sheet-2.svg"
-                    : "/imgs/bottom-sheet-1.svg"
+                    ? "/imgs/bottom-sheet-1.svg"
+                    : "/imgs/bottom-sheet-2.svg"
                 }
                 className="w-full absolute -bottom-0 translate-y-[100%]"
               />
