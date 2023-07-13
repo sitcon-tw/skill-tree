@@ -374,7 +374,7 @@
     "icon": "file-table-box-multiple-outline",
     "name": "SQL",
     "category": "資料庫",
-    "content": "SQL （Structured Query Language），是一種用於管理和操作關聯式資料庫的語言，透過 SELECT、INSERT、UPDATE 和 DELETE 等結構化的語句進行操作，也可以結合指令進行更複雜的資料查詢和聚合。主流的關聯式資料庫管理系統如 MySQL、PostgreSQL、Oracle 都支持 SQL 語法。",
+    "content": "SQL （Structured Query Language），是一種用於管理和操作關聯式資料庫的語言，透過 SELECT、INSERT、UPDATE 和 DELETE 等結構化的語句進行操作，也可以結合指令進行更複雜的資料查詢和聚合。主流的關聯式資料庫管理系統如 MySQL、PostgreSQL、Oracle 都支援 SQL 語法。",
     "uuid": "c123f754"
   },
   {
