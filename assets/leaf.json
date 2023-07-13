@@ -332,6 +332,13 @@
     "icon": "firefox",
     "name": "MozTW",
     "category": "社群",
+    "content": "MozTW（Mozilla Taiwan Community、Mozilla 台灣社群）是台灣 Firefox 愛好者的實體社群，負責維護 Mozilla 軟體與網站的正體中文在地化，與 Mozilla 相關理念推廣。目前也同時在北市光華商圈經營摩茲工寮實體空間 ( https://moztw.space )，很多社群活動的籌會都會在摩茲舉行。",
+    "uuid": "1346c675"
+  },
+  {
+    "icon": "",
+    "name": "GDSC",
+    "category": "社群",
     "content": "MozTW（Mozilla Taiwan Community、Mozilla 台灣社群）是台灣 Firefox 愛好者的實體社群，負責維護 Mozilla 軟體與網站的正體中文在地化，並進行 Mozilla 相關理念的推廣。目前也同時在北市光華商圈經營摩茲工寮實體空間（https://moztw.space），很多社群活動的籌會都會在摩茲工寮舉行。",
     "uuid": "1346c675"
   },

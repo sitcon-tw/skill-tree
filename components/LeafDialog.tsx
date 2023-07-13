@@ -24,7 +24,7 @@ export default function LeafDialog({
             ></motion.div>
             <motion.div
               className={`fixed w-[512px] max-w-[95vw] h-[70vh] right-0 bottom-0 left-0 top-0 m-auto cursor-auto z-20 ${
-                isRoot ? `bg-[#CECECE]` : `bg-[#92DCC6]`
+                isRoot ? `bg-[#92DCC6]` : `bg-[#CECECE]`
               }`}
               initial={{ opacity: 0, y: 360 }}
               animate={{ opacity: 1, y: 0 }}
@@ -43,8 +43,8 @@ export default function LeafDialog({
               <img
                 src={
                   isRoot
-                    ? "/imgs/bottom-sheet-2.svg"
-                    : "/imgs/bottom-sheet-1.svg"
+                    ? "/imgs/bottom-sheet-1.svg"
+                    : "/imgs/bottom-sheet-2.svg"
                 }
                 className="w-full absolute -bottom-0 translate-y-[100%]"
               />

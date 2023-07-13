@@ -4,7 +4,7 @@ import Roots from "@/assets/root.json";
 import TreeRoot from "./TreeRoot";
 
 import OpenSourceSpiritDialog from "./OpenSourceSpiritDialog";
-export default function Tree() {
+export default function Tree({ x, y }: { x: number; y: number }) {
   const [isOpenSourceSpiritDialogOpen, setIsOpenSourceSpiritDialogOpen] =
     useState(false);
 
@@ -29,9 +29,6 @@ export default function Tree() {
   const warpTime = useTransform(time, (t) => t % 8000);
   const starOpacity1 = useTransform(warpTime, [0, 4000, 8000], [1, 0.2, 1]);
   const starOpacity2 = useTransform(warpTime, [0, 4000, 8000], [0.2, 1, 0.2]);
-  const planetY = useTransform(warpTime, [0, 4000, 8000], [0, 25, 0], {
-    ease: easeInOut,
-  });
   const satelliteY = useTransform(time, [0, 2000], [60, 0], {
     ease: easeInOut,
   });
@@ -48,7 +45,7 @@ export default function Tree() {
       initial="hidden"
       animate="visible"
     >
-      <img
+      <motion.img
         src="/imgs/tree/bg.svg"
         className="w-full user-select-none pointer-events-none scale-[1.1] translate-y-[-3.5%] origin-top"
         draggable="false"
@@ -57,36 +54,40 @@ export default function Tree() {
         src="/imgs/tree/plants1.svg"
         className="absolute -top-[4.8%] -left-[13%] w-[39%] user-select-none pointer-events-none"
         draggable="false"
-        style={{ y: planetY }}
+        style={{ x: x * 0.2, y: y * 0.2 }}
       />
       <motion.img
         src="/imgs/tree/plants2.svg"
         className="absolute top-[25.7%] left-0 min-w-[106.7%] user-select-none pointer-events-none"
         draggable="false"
-        style={{ scale: planetScale }}
+        style={{ scale: planetScale, x: -x * 0.2, y: -y * 0.2 }}
       />
       <motion.img
         src="/imgs/tree/satellite.svg"
         className="absolute top-[38.5%] left-[65.75%] w-[8.4%] user-select-none pointer-events-none"
         draggable="false"
-        style={{ y: satelliteY, scale: satelliteScale }}
+        style={{ x: -x * 0.15, y: -y * 0.15, scale: satelliteScale }}
       />
       <motion.img
         src="/imgs/tree/star1.svg"
         className="absolute top-[38.5%] left-[0] w-[104%] user-select-none pointer-events-none"
         draggable="false"
-        style={{ opacity: starOpacity2 }}
+        style={{ opacity: starOpacity2, x: -x * 0.1, y: -y * 0.1 }}
       />
       <motion.img
         src="/imgs/tree/star2.svg"
         className="absolute top-[0] left-[0] w-[104%] user-select-none pointer-events-none"
         draggable="false"
-        style={{ opacity: starOpacity1 }}
+        style={{ opacity: starOpacity1, x: -x * 0.11, y: -y * 0.11 }}
       />
       {/* 開源精神 */}
       <motion.div
         className="absolute top-[42.5%] left-[50%] w-max -translate-x-[50%] -translate-y-[50%] text-[min(3vw,calc(768px/100*3))] text-[#102143] font-bold"
         onClick={() => setIsOpenSourceSpiritDialogOpen(true)}
+        style={{
+          x: `calc(${x * 0.01}px - 50%)`,
+          y: `calc(${y * 0.01}px - 50%)`,
+        }}
       >
         開源精神
       </motion.div>
